@@ -5,21 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f6f1e6" />
   <meta name="description" content="路環魚鋪的手勢掃描互動檔案。" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="./网站图标.svg" />
+
   <title>路環跡事｜手勢掃描檔案</title>
+
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js">
+  </script>
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js">
+  </script>
+
+  <script defer src="./app.js"></script>
 </head>
+
 <body>
   <main class="archive" aria-labelledby="site-title">
+
     <header class="masthead">
       <div>
-        <p class="eyebrow">COLOANE FISHING VILLAGE / LIVING ARCHIVE</p>
+        <p class="eyebrow">
+          COLOANE FISHING VILLAGE / LIVING ARCHIVE
+        </p>
+
         <h1 id="site-title">路環跡事</h1>
       </div>
+
       <div class="live-state" aria-live="polite">
         <span class="state-dot" id="stateDot"></span>
         <span id="stateText">手勢待機中</span>
@@ -27,52 +45,182 @@
     </header>
 
     <section class="experience" aria-label="手勢掃描互動海報">
-      <div class="poster-shell" id="posterShell" tabindex="0" aria-describedby="gestureHint">
+
+      <div
+        class="poster-shell"
+        id="posterShell"
+        tabindex="0"
+        aria-describedby="gestureHint">
+
         <div class="glyph-noise" aria-hidden="true"></div>
         <div class="scan-ruler ruler-top" aria-hidden="true"></div>
         <div class="scan-ruler ruler-left" aria-hidden="true"></div>
 
         <div class="view-stack" id="viewStack">
-          <img class="view-layer is-active" src="assets/view-01-front.png" alt="棠記魚鋪正面字符掃描圖" />
-          <img class="view-layer" src="assets/view-02-front-right.png" alt="棠記魚鋪右前側字符掃描圖" />
-          <img class="view-layer" src="assets/view-03-roof.png" alt="棠記魚鋪屋頂俯視字符掃描圖" />
-          <img class="view-layer" src="assets/view-04-rear.png" alt="棠記魚鋪背面字符掃描圖" />
-          <img class="view-layer" src="assets/view-05-side.png" alt="棠記魚鋪長側面字符掃描圖" />
+
+          <img
+            class="view-layer is-active"
+            src="./view-01-front.png"
+            alt="棠記魚鋪正面字符掃描圖" />
+
+          <img
+            class="view-layer"
+            src="./view-02-front-right.png"
+            alt="棠記魚鋪右前側字符掃描圖" />
+
+          <img
+            class="view-layer"
+            src="./view-03-roof.png"
+            alt="棠記魚鋪屋頂俯視字符掃描圖" />
+
+          <img
+            class="view-layer"
+            src="./view-04-rear.png"
+            alt="棠記魚鋪背面字符掃描圖" />
+
+          <img
+            class="view-layer"
+            src="./view-05-side.png"
+            alt="棠記魚鋪長側面字符掃描圖" />
+
         </div>
 
         <div class="scan-line" aria-hidden="true"></div>
-        <div class="hand-cursor" id="handCursor" aria-hidden="true"><span></span></div>
-        <div class="view-code" id="viewCode" aria-live="polite">01 / 正面</div>
-        <div class="scan-readout" id="scanReadout">SCAN 00%</div>
-        <div class="camera-frame" id="cameraFrame" aria-label="手勢攝像頭預覽">
-          <div class="camera-header"><span class="camera-dot"></span> LIVE / HAND TRACKING</div>
-          <video id="cameraFeed" playsinline muted aria-label="即時攝像頭預覽"></video>
-          <div class="camera-corner corner-a" aria-hidden="true"></div>
-          <div class="camera-corner corner-b" aria-hidden="true"></div>
+
+        <div
+          class="hand-cursor"
+          id="handCursor"
+          aria-hidden="true">
+          <span></span>
+        </div>
+
+        <div
+          class="view-code"
+          id="viewCode"
+          aria-live="polite">
+          01 / 正面
+        </div>
+
+        <div class="scan-readout" id="scanReadout">
+          SCAN 00%
+        </div>
+
+        <div
+          class="camera-frame"
+          id="cameraFrame"
+          aria-label="手勢攝像頭預覽">
+
+          <div class="camera-header">
+            <span class="camera-dot"></span>
+            LIVE / HAND TRACKING
+          </div>
+
+          <video
+            id="cameraFeed"
+            playsinline
+            muted
+            aria-label="即時攝像頭預覽">
+          </video>
+
+          <div
+            class="camera-corner corner-a"
+            aria-hidden="true">
+          </div>
+
+          <div
+            class="camera-corner corner-b"
+            aria-hidden="true">
+          </div>
+
         </div>
       </div>
 
       <div class="control-rail" aria-label="視角控制">
-        <button class="camera-button" id="cameraButton" type="button">啟動手勢掃描</button>
-        <p class="privacy-note">只讀取手掌座標，不儲存鏡頭畫面。</p>
+
+        <button
+          class="camera-button"
+          id="cameraButton"
+          type="button">
+          啟動手勢掃描
+        </button>
+
+        <p class="privacy-note">
+          只讀取手掌座標，不儲存鏡頭畫面。
+        </p>
+
         <div class="view-controls">
-          <button class="nav-button" id="prevButton" type="button" aria-label="上一個視角">←</button>
+
+          <button
+            class="nav-button"
+            id="prevButton"
+            type="button"
+            aria-label="上一個視角">
+            ←
+          </button>
+
           <ol class="view-list" id="viewList">
-            <li class="is-current"><button type="button" data-view="0">01 <span>正面</span></button></li>
-            <li><button type="button" data-view="1">02 <span>右前</span></button></li>
-            <li><button type="button" data-view="2">03 <span>俯視</span></button></li>
-            <li><button type="button" data-view="3">04 <span>背面</span></button></li>
-            <li><button type="button" data-view="4">05 <span>側面</span></button></li>
+
+            <li class="is-current">
+              <button type="button" data-view="0">
+                01 <span>正面</span>
+              </button>
+            </li>
+
+            <li>
+              <button type="button" data-view="1">
+                02 <span>右前</span>
+              </button>
+            </li>
+
+            <li>
+              <button type="button" data-view="2">
+                03 <span>俯視</span>
+              </button>
+            </li>
+
+            <li>
+              <button type="button" data-view="3">
+                04 <span>背面</span>
+              </button>
+            </li>
+
+            <li>
+              <button type="button" data-view="4">
+                05 <span>側面</span>
+              </button>
+            </li>
+
           </ol>
-          <button class="nav-button" id="nextButton" type="button" aria-label="下一個視角">→</button>
+
+          <button
+            class="nav-button"
+            id="nextButton"
+            type="button"
+            aria-label="下一個視角">
+            →
+          </button>
+
         </div>
       </div>
     </section>
 
     <footer class="instruction" id="gestureHint">
-      <span><b>01</b> 張開手掌，上下移動掃描建築</span>
-      <span><b>02</b> 左右揮手，切換五個空間視角</span>
-      <span><b>03</b> 手離開後，建築回到記憶資料</span>
+
+      <span>
+        <b>01</b>
+        張開手掌，上下移動掃描建築
+      </span>
+
+      <span>
+        <b>02</b>
+        左右揮手，切換五個空間視角
+      </span>
+
+      <span>
+        <b>03</b>
+        手離開後，建築回到記憶資料
+      </span>
+
     </footer>
   </main>
 </body>
